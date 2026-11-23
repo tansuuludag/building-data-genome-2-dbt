@@ -1,0 +1,79 @@
+holiday_date,country,holiday_name
+2016-01-01,CA,New Year's Day
+2016-01-01,GB,New Year's Day
+2016-01-01,IE,New Year's Day
+2016-01-01,US,New Year's Day
+2016-01-18,US,Martin Luther King Jr. Day
+2016-02-15,CA,Family Day
+2016-02-15,US,Washington's Birthday
+2016-03-17,IE,Saint Patrick's Day
+2016-03-25,CA,Good Friday
+2016-03-25,GB,Good Friday
+2016-03-28,GB,Easter Monday
+2016-03-28,IE,Easter Monday
+2016-05-02,GB,May Day
+2016-05-02,IE,May Bank Holiday
+2016-05-23,CA,Victoria Day
+2016-05-30,GB,Spring Bank Holiday
+2016-05-30,US,Memorial Day
+2016-06-06,IE,June Bank Holiday
+2016-07-01,CA,Canada Day
+2016-07-04,US,Independence Day
+2016-08-01,IE,August Bank Holiday
+2016-08-29,GB,Late Summer Bank Holiday
+2016-09-05,CA,Labour Day
+2016-09-05,US,Labor Day
+2016-10-10,CA,Thanksgiving Day
+2016-10-10,US,Columbus Day
+2016-10-31,IE,October Bank Holiday
+2016-11-11,US,Veterans Day
+2016-11-24,US,Thanksgiving Day
+2016-12-25,CA,Christmas Day
+2016-12-25,GB,Christmas Day
+2016-12-25,IE,Christmas Day
+2016-12-25,US,Christmas Day
+2016-12-26,CA,Boxing Day; Christmas Day (observed)
+2016-12-26,GB,Boxing Day
+2016-12-26,IE,Saint Stephen's Day
+2016-12-26,US,Christmas Day (observed)
+2016-12-27,GB,Christmas Day (observed)
+2017-01-01,CA,New Year's Day
+2017-01-01,GB,New Year's Day
+2017-01-01,IE,New Year's Day
+2017-01-01,US,New Year's Day
+2017-01-02,CA,New Year's Day (observed)
+2017-01-02,GB,New Year's Day (observed)
+2017-01-02,US,New Year's Day (observed)
+2017-01-16,US,Martin Luther King Jr. Day
+2017-02-20,CA,Family Day
+2017-02-20,US,Washington's Birthday
+2017-03-17,IE,Saint Patrick's Day
+2017-04-14,CA,Good Friday
+2017-04-14,GB,Good Friday
+2017-04-17,GB,Easter Monday
+2017-04-17,IE,Easter Monday
+2017-05-01,GB,May Day
+2017-05-01,IE,May Bank Holiday
+2017-05-22,CA,Victoria Day
+2017-05-29,GB,Spring Bank Holiday
+2017-05-29,US,Memorial Day
+2017-06-05,IE,June Bank Holiday
+2017-07-01,CA,Canada Day
+2017-07-04,US,Independence Day
+2017-08-07,IE,August Bank Holiday
+2017-08-28,GB,Late Summer Bank Holiday
+2017-09-04,CA,Labour Day
+2017-09-04,US,Labor Day
+2017-10-09,CA,Thanksgiving Day
+2017-10-09,US,Columbus Day
+2017-10-30,IE,October Bank Holiday
+2017-11-10,US,Veterans Day (observed)
+2017-11-11,US,Veterans Day
+2017-11-23,US,Thanksgiving Day
+2017-12-25,CA,Christmas Day
+2017-12-25,GB,Christmas Day
+2017-12-25,IE,Christmas Day
+2017-12-25,US,Christmas Day
+2017-12-26,CA,Boxing Day
+2017-12-26,GB,Boxing Day
+2017-12-26,IE,Saint Stephen's Day

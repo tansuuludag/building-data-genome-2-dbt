@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: int_electricity_cleaned
+    description: "Saatlik elektrik; ≥24 saatlik sıfır serileri ve bina p99'unun 5 katını aşan değerler NULL. Ham değer kwh_raw'da."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['building_id', 'timestamp']
+    columns:
+      - name: building_id
+        data_tests: [not_null]
+      - name: kwh
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+  - name: int_weather_daily
+    description: "Saha x gün hava özeti; HDD/CDD 18 °C tabanlı."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['site_id', 'date']
+    columns:
+      - name: hdd
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: cdd
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+  - name: int_building_daily
+    description: "Bina x gün; en az 20 saati dolu günler. Hava, tatil ve fiyat eklenmiş."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['building_id', 'date']
+    columns:
+      - name: building_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_metadata')
+                field: building_id
+      - name: kwh_hours
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 20
+                max_value: 24
+      - name: dow
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: [0, 1, 2, 3, 4, 5, 6]
+                quote: false
+      - name: price_usd_per_kwh
+        data_tests: [not_null]

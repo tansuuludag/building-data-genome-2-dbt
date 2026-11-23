@@ -1,0 +1,22 @@
+version: 2
+
+models:
+  - name: fct_building_scorecard
+    description: "2017 bina karnesi: beklenen ve gerçekleşen tüketim, fark (kWh, %, $), model güvenilirliği (CV(RMSE)) ve işaretleme. İşaretli bina = incelenecek aday, kesin israf değil."
+    columns:
+      - name: building_id
+        data_tests: [unique, not_null]
+      - name: cv_rmse
+        description: "RMSE / ortalama tüketim (ASHRAE Guideline 14)."
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: model_used
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['LightGBM', 'Referans']
+      - name: is_flagged
+        description: "Tam yıl + CV(RMSE) < %25 + fazla tüketim > %10."
+        data_tests: [not_null]

@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: bdg2_raw
+    description: "Building Data Genome 2 ham tabloları (Colab ile GitHub'dan yüklendi)"
+    database: building-data-genome-2
+    schema: bdg2_raw
+    tables:
+      - name: metadata
+        description: "Bina bilgisi: 1 satır = 1 bina"
+      - name: weather
+        description: "Saatlik hava: 1 satır = saha x saat"
+      - name: electricity_raw
+        description: "Saatlik elektrik, ham: 1 sütun = 1 bina"
+      - name: electricity_clean
+        description: "Saatlik elektrik, temizlenmiş: 1 sütun = 1 bina"

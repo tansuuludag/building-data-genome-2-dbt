@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_metadata
+    description: "Bina bilgisi, temizlenmiş: 1 satır = 1 bina"
+    columns:
+      - name: building_id
+        description: "Bina kimliği (birincil anahtar)"
+        data_tests:
+          - unique
+          - not_null
+      - name: site_id
+        data_tests:
+          - not_null
+      - name: sqm
+        description: "Bina alanı (m²). Moose sahasında değerler yuvarlanmış, tahmini olabilir"
+        data_tests:
+          - not_null
+      - name: primary_use
+        description: "Kullanım türü; boş olanlar 'Unknown' (Swan sahası)"
+        data_tests:
+          - not_null
+      - name: country
+        description: "Fiyat ve tatil tablolarını bağlamak için ülke kodu"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['US', 'GB', 'IE', 'CA']

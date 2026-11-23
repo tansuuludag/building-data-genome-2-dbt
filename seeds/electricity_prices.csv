@@ -1,0 +1,29 @@
+region,year,price_usd_per_kwh,source
+CA,2016,0.1507,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+CA,2017,0.1576,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+TX,2016,0.0826,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+TX,2017,0.0826,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+NY,2016,0.1445,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+NY,2017,0.1475,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+AZ,2016,0.1041,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+AZ,2017,0.1050,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+MN,2016,0.0986,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+MN,2017,0.1048,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+FL,2016,0.0890,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+FL,2017,0.0935,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+NJ,2016,0.1226,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+NJ,2017,0.1228,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+DC,2016,0.1172,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+DC,2017,0.1166,EIA Electric Power Annual 2017 Table 2.10 (commercial)
+US-PAC,2016,0.1327,EIA Electric Power Annual 2017 Table 2.10 (Pacific Contiguous)
+US-PAC,2017,0.1376,EIA Electric Power Annual 2017 Table 2.10 (Pacific Contiguous)
+US-MTN,2016,0.0949,EIA Electric Power Annual 2017 Table 2.10 (Mountain)
+US-MTN,2017,0.0961,EIA Electric Power Annual 2017 Table 2.10 (Mountain)
+US,2016,0.1043,EIA Electric Power Annual 2017 Table 2.10 (U.S. Total)
+US,2017,0.1066,EIA Electric Power Annual 2017 Table 2.10 (U.S. Total)
+GB,2016,0.1373,BEIS QEP Table 3.4.1 non-domestic avg excl CCL; GBP->USD 1.355
+GB,2017,0.1360,BEIS QEP Table 3.4.1 non-domestic avg excl CCL; GBP->USD 1.289
+IE,2016,0.1412,SEAI/Eurostat non-household weighted avg excl VAT; EUR->USD 1.107
+IE,2017,0.1412,SEAI/Eurostat non-household weighted avg excl VAT; EUR->USD 1.130
+CA-ON,2016,0.1154,Hydro-Quebec 2016 Ottawa medium power excl tax; CAD->USD 1/1.325
+CA-ON,2017,0.1160,Estimate: avg of Hydro-Quebec 2016 and 2018 Ottawa medium power; CAD->USD 1/1.299

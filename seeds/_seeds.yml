@@ -1,0 +1,55 @@
+version: 2
+
+seeds:
+  - name: holidays
+    description: "Resmî tatiller 2016-2017 (ABD federal, İngiltere, İrlanda, Kanada-Ontario). Kaynak: Python holidays kütüphanesi"
+    config:
+      column_types:
+        holiday_date: date
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['holiday_date', 'country']
+    columns:
+      - name: country
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['US', 'GB', 'IE', 'CA']
+
+  - name: site_locations
+    description: "Saha → ülke, eyalet, şehir. Koordinatlardan eşlendi; konumu olmayan 4 saha timezone_only"
+    columns:
+      - name: site_id
+        data_tests:
+          - unique
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_metadata')
+                field: site_id
+      - name: country
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['US', 'GB', 'IE', 'CA']
+
+  - name: electricity_prices
+    description: "Ticari elektrik fiyatı ($/kWh). ABD: EIA Electric Power Annual 2017 Tablo 2.10. GB, IE, CA henüz eklenmedi"
+    config:
+      column_types:
+        year: int64
+        price_usd_per_kwh: float64
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['region', 'year']
+    columns:
+      - name: price_usd_per_kwh
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0.05
+                max_value: 0.30

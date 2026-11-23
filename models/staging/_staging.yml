@@ -1,0 +1,105 @@
+version: 2
+
+models:
+  - name: stg_metadata
+    description: "Bina bilgisi, temizlenmiş: 1 satır = 1 bina"
+    columns:
+      - name: building_id
+        description: "Bina kimliği (birincil anahtar)"
+        data_tests:
+          - unique
+          - not_null
+      - name: site_id
+        data_tests:
+          - not_null
+      - name: sqm
+        description: "Bina alanı (m²). Moose sahasında değerler yuvarlanmış, tahmini olabilir"
+        data_tests:
+          - not_null
+      - name: primary_use
+        description: "Kullanım türü; boş olanlar 'Unknown' (Swan sahası)"
+        data_tests:
+          - not_null
+      - name: country
+        description: "Fiyat ve tatil tablolarını bağlamak için ülke kodu"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['US', 'GB', 'IE', 'CA']
+
+  - name: stg_electricity_raw
+    description: "Saatlik elektrik, ham, uzun format: 1 satır = 1 bina x 1 saat"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['building_id', 'timestamp']
+    columns:
+      - name: building_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_metadata')
+                field: building_id
+      - name: timestamp
+        data_tests:
+          - not_null
+      - name: kwh
+        description: "Saatlik tüketim (kWh). Boş = sayaç okuması yok"
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+  - name: stg_electricity_clean
+    description: "Saatlik elektrik, BDG2 hazır temiz sürüm, uzun format. Tek fark: sıfırlar boşaltılmış"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['building_id', 'timestamp']
+    columns:
+      - name: building_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_metadata')
+                field: building_id
+      - name: timestamp
+        data_tests:
+          - not_null
+      - name: kwh
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+
+  - name: stg_weather
+    description: "Saatlik hava, temizlenmiş: 1 satır = 1 saha x 1 saat. Saatler yerel saat"
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['site_id', 'timestamp']
+    columns:
+      - name: site_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_metadata')
+                field: site_id
+      - name: timestamp
+        data_tests:
+          - not_null
+      - name: air_temp_c
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: -60
+                max_value: 60
+      - name: precip_1h_mm
+        description: "1 saatlik yağış (mm). NOAA'daki -1 kodu 0'a çevrildi"
+        data_tests:
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0

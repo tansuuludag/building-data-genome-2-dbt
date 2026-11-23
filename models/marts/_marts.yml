@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: dim_building
+    description: "Bina dimension tablosu: 1 satır = 1 bina. Konum, kullanım, alan, veri kapsamı ve modellenebilirlik bayrağı."
+    columns:
+      - name: building_id
+        data_tests: [unique, not_null]
+      - name: site_id
+        data_tests: [not_null]
+      - name: is_modelable
+        description: "2016 ve 2017'de en az 300'er dolu gün ve otopark değil."
+        data_tests: [not_null]
+
+  - name: fct_building_daily
+    description: "Bina x gün fact tablosu: günlük kWh, hava, tatil, fiyat ve maliyet. Bina özellikleri dim_building'de."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['building_id', 'date']
+    columns:
+      - name: building_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_building')
+                field: building_id
+      - name: kwh
+        data_tests:
+          - not_null
+          - dbt_utils.accepted_range:
+              arguments:
+                min_value: 0
+      - name: cost_usd
+        data_tests: [not_null]

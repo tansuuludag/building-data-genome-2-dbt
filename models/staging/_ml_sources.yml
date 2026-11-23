@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: bdg2_ml
+    database: building-data-genome-2
+    schema: bdg2_ml
+    description: "Colab'daki tahmin modelinin çıktıları (bdg2_enerji_analizi_ve_tahmin.ipynb, 9. bölüm)."
+    tables:
+      - name: predictions_daily
+        description: "Bina x gün, 2017: gerçekleşen, referans, ML ve seçilmiş (beklenen) tüketim."

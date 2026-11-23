@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_ml_predictions_daily
+    description: "Colab tahminleri; bina x gün, 2017."
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns: ['building_id', 'date']
+    columns:
+      - name: building_id
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_building')
+                field: building_id
+      - name: expected_kwh
+        data_tests: [not_null]

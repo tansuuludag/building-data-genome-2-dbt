@@ -36,11 +36,7 @@ select
     coalesce(cov.days_2016, 0)                                   as days_2016,
     coalesce(cov.days_2017, 0)                                   as days_2017,
     cov.avg_daily_kwh,
-    cov.eui_2016_kwh_sqm,
-
-    coalesce(cov.days_2016, 0) >= 300
-        and coalesce(cov.days_2017, 0) >= 300
-        and not m.is_parking                                     as is_modelable
+    cov.eui_2016_kwh_sqm
 
 from {{ ref('stg_metadata') }}       as m
 left join {{ ref('site_locations') }} as loc

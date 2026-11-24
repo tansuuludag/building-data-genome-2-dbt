@@ -2,14 +2,11 @@ version: 2
 
 models:
   - name: dim_building
-    description: "Bina dimension tablosu: 1 satır = 1 bina. Konum, kullanım, alan, veri kapsamı ve modellenebilirlik bayrağı."
+    description: "Bina dimension tablosu: 1 satır = 1 bina. Konum, kullanım, alan ve veri kapsamı. Analize uygunluk kuralı fct_building_scorecard.has_full_year'da."
     columns:
       - name: building_id
         data_tests: [unique, not_null]
       - name: site_id
-        data_tests: [not_null]
-      - name: is_modelable
-        description: "2016 ve 2017'de en az 300'er dolu gün ve otopark değil."
         data_tests: [not_null]
 
   - name: fct_building_daily

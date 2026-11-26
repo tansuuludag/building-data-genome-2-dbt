@@ -47,16 +47,16 @@ The ready-made "clean" version of BDG2 only removes all zero readings. We use ou
 | US states | EIA Electric Power Annual, Table 2.10 (commercial) |
 | GB | BEIS Quarterly Energy Prices, Table 3.4.1 (non-domestic, excl. CCL) |
 | IE | SEAI / Eurostat (non-household, excl. VAT) |
-| CA-ON (Ottawa) | Hydro-Québec, Comparison of Electricity Prices (2017 = average of 2016 and 2018) |
+| CA-ON (Ottawa) | Hydro-Québec, Comparison of Electricity Prices 2016 and 2017 (medium power, 100,000 kWh / 500 kW, excl. tax) |
 
-Local currencies are converted to USD with yearly average exchange rates.
+Local currencies are converted to USD with yearly average exchange rates (Federal Reserve G.5A).
 
 ## Model
 
 - **Baseline:** the building's 2016 average for the same day of the week.
 - **LightGBM:** corrects the baseline for weather, holidays and season. One model learns all buildings together.
 - **Model choice per building:** tested on 2016 Q4 before looking at 2017.
-- **Metric:** CV(RMSE) (ASHRAE Guideline 14). Daily threshold: 25%.
+- **Metric:** CV(RMSE). ASHRAE Guideline 14 uses 15% for monthly and 30% for hourly data; for daily data we use 25%.
 
 ## Results (2017)
 

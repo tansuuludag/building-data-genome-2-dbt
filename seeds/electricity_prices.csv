@@ -25,5 +25,5 @@ GB,2016,0.1373,BEIS QEP Table 3.4.1 non-domestic avg excl CCL; GBP->USD 1.355
 GB,2017,0.1360,BEIS QEP Table 3.4.1 non-domestic avg excl CCL; GBP->USD 1.289
 IE,2016,0.1412,SEAI/Eurostat non-household weighted avg excl VAT; EUR->USD 1.107
 IE,2017,0.1412,SEAI/Eurostat non-household weighted avg excl VAT; EUR->USD 1.130
-CA-ON,2016,0.1154,Hydro-Quebec 2016 Ottawa medium power excl tax; CAD->USD 1/1.325
-CA-ON,2017,0.1160,Estimate: avg of Hydro-Quebec 2016 and 2018 Ottawa medium power; CAD->USD 1/1.299
+CA-ON,2016,0.1155,Hydro-Quebec Comparison of Electricity Prices 2016 (rates Apr 1 2016) Ottawa medium power 100000 kWh/500 kW 15.29 c CAD excl tax; CAD->USD 1.3243 (Fed G.5A)
+CA-ON,2017,0.1173,Hydro-Quebec Comparison of Electricity Prices 2017 (rates Apr 1 2017) Ottawa medium power 100000 kWh/500 kW 15.23 c CAD excl tax; CAD->USD 1.2984 (Fed G.5A)

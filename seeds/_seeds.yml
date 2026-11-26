@@ -36,7 +36,7 @@ seeds:
                 values: ['US', 'GB', 'IE', 'CA']
 
   - name: electricity_prices
-    description: "Ticari elektrik fiyatı ($/kWh). ABD: EIA Electric Power Annual 2017 Tablo 2.10. GB, IE, CA henüz eklenmedi"
+    description: "Ticari / konut dışı elektrik fiyatı ($/kWh), bölge ve yıla göre. ABD: EIA Electric Power Annual 2017 Tablo 2.10; GB: BEIS QEP 3.4.1 (CCL hariç); IE: SEAI işletme fiyatı (KDV hariç); CA-ON: Hydro-Québec orta güç, Ottawa (vergi hariç). Kur: Fed G.5A yıllık ortalama."
     config:
       column_types:
         year: int64
